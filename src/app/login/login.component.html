@@ -3,12 +3,12 @@
     <img src="assets/images/logo.png">
   </div>
   <div class="col-sm-6 form text-center">
-    <div class='form-group'>
+    <div class='form-group mx-5'>
       <input class="form-control" type="email" name="email" placeholder="Email" [(ngModel)]="email">
       <input class="form-control" type="password" name="password" placeholder="Password" [(ngModel)]="password">
     </div>
     <div style="padding-top:1rem;">
-      <input class="btn btn-primary" type="submit" value="Login" (click)='LoginUser()'>
+      <input class="btn btn-primary px-5" type="submit" value="Login" (click)='LoginUser()'>
     </div>
   </div>
   <div *ngIf="notAuth" class="alert alert-danger mt-3 text-center">

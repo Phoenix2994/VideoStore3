@@ -1,0 +1,16 @@
+<div *ngIf="isLoaded" class="container py-4">
+    <h1>{{movie.title}}</h1>
+    <div class="card my-3">
+        <div class="row no-gutters">
+            <div class="col-auto">
+                <img src="https://image.tmdb.org/t/p/w342/{{ movie.poster_path }}" class="img-fluid" alt="">
+            </div>
+            <div class="col">
+                <div class="card-body px-3">
+                    <h4 class="card-title">Description</h4>
+                    <p class="card-text">{{movie.overview}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

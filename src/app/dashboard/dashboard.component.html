@@ -1,9 +1,17 @@
-<app-header></app-header>
 <div class="container">
   <h1 class="my-4">Popular Movies</h1>
   <div class="card-deck">
-    <div class="col-lg-3 col-md-4 col-sm-6 col-6" *ngFor="let movie of movies">
-      <app-movie-tab [movie]="movie"></app-movie-tab>
-    </div>
+    <div class="col-lg-3 col-md-4 col-sm-5 col-6 mb-5" *ngFor="let movie of movies">
+      <div class="card">
+        <img class="card-img-top" src="https://image.tmdb.org/t/p/w342/{{ movie.poster_path }}" alt="Card image">
+        <div class="card-body">
+          <h4 class="card-title px-auto">{{movie.title}}</h4>
+          <p class="card-text">{{movie.overview | slice:0:150}}...</p>
+        </div>
+        <div class="card-footer text-center">
+          <a routerLink='./{{movie.id}}' class="btn btn-primary">Detail</a>
+        </div>
+      </div>
+    </div>>
   </div>
 </div>

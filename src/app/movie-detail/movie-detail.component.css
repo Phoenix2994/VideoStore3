@@ -1,0 +1,16 @@
+.card {
+    background-color: antiquewhite;
+    max-height: 350px;
+}
+
+img {
+    max-height: 350px;
+}
+
+.container {
+    width: 70%;
+}
+
+h1 {
+    color: white;
+}

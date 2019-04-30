@@ -1,32 +1,26 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
-import { MOVIES } from './movie-list';
-import { Movie } from './model/movie';
+import { Observable } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MovieService {
 
-  movies: Movie[];
+  private url = 'https://api.themoviedb.org/3/movie';
+  private apiKey = 'c4d79d0d1e50bf8bc86b7afbd240e4df';
+  private language;
 
-  constructor() { }
-
-  getMovies(): Observable<Movie[]> {
-    this.movies = MOVIES.sort(this.sortByTitle);
-    return of(this.movies);
+  constructor(private http: HttpClient) {
+    this.language = 'en-US';
   }
 
-  sortByTitle(a, b) {
-    const nameA = a.title.toLowerCase();
-    const nameB = b.title.toLowerCase();
-    if (nameA < nameB) {
-      return -1;
-    }
-    if (nameA > nameB) {
-      return 1;
-    }
-    return 0;
+  getMovies(): Observable<any> {
+    return this.http.get(`${this.url}/popular?api_key=${this.apiKey}&language=${this.language}&page=${1}`);
+  }
+
+  getChosenMovie(id): Observable<any> {
+    return this.http.get(`${this.url}/${id}?api_key=${this.apiKey}&language=${this.language}`);
   }
 
 }

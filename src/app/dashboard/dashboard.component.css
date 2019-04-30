@@ -1,3 +1,15 @@
 h1 {
     color: white;
 }
+
+img {
+    max-height: 250px;
+}
+
+.card {
+    height: 100%;
+}
+
+.card-body {
+    padding: 0.75rem;
+}
