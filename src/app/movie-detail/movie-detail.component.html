@@ -1,12 +1,12 @@
-<div *ngIf="isLoaded" class="container py-4">
+<div *ngIf="descIsLoaded" class="container py-4">
 
     <div class="row ml-1 mr-0">
-        <h1 class="mr-auto mb-3">{{movie.title}}</h1>
+        <h1 class="col mr-auto mb-3">{{movie.title}}</h1>
         <div class="mt-auto btn-group btn-group-toggle" data-toggle="buttons">
-            <label (click) = showDescription() class="btn btn-secondary active">
+            <label (click)=showDescription() class="btn btn-secondary active">
                 <input type="radio" name="options" id="option1" autocomplete="off" checked> Description
             </label>
-            <label (click) = showTrailer() class="btn btn-secondary">
+            <label (click)=showTrailer() class="btn btn-secondary">
                 <input type="radio" name="options" id="option2" autocomplete="off"> Trailer
             </label>
         </div>
@@ -22,8 +22,9 @@
                     <h4 class="card-title">Description</h4>
                     <p class="card-text">{{movie.overview}}</p>
                 </div>
-                <div *ngIf="!showDesc" class="card-body px-3">
-                    <video src="https://www.youtube.com/watch?v={{movieTrailer[0].key}}" alt=""></video>
+                <div *ngIf="!showDesc && trailerIsLoaded" class="card-body text-center">
+                    <youtube-player [videoId]="movieTrailer[0].key" [height]="300" [width]="500">
+                    </youtube-player>
                 </div>
             </div>
         </div>

@@ -4,7 +4,6 @@
 
 .card {
     background-color: antiquewhite;
-    max-height: 350px;
     border-bottom-right-radius: 25px;
     border-bottom-left-radius: 25px;
     border-top-left-radius: 25px;
@@ -38,5 +37,4 @@ h1 {
 .btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
     color: black;
     background-color: antiquewhite;
-
 }

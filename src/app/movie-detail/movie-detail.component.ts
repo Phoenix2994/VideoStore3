@@ -11,7 +11,8 @@ import { filter } from 'rxjs/operators';
 })
 export class MovieDetailComponent implements OnInit {
 
-  isLoaded = false;
+  descIsLoaded = false;
+  trailerIsLoaded = false;
   movie: [];
   movieTrailer: [];
   showDesc = true;
@@ -31,7 +32,7 @@ export class MovieDetailComponent implements OnInit {
     this.movieService.getChosenMovie(id)
       .subscribe(data => {
         this.movie = data;
-        this.isLoaded = true;
+        this.descIsLoaded = true;
       },
         (error) => {
           console.log(error);
@@ -44,7 +45,7 @@ export class MovieDetailComponent implements OnInit {
       .subscribe(data => {
         const movieVideos = data.results;
         this.movieTrailer = movieVideos.filter(video => video.type === 'Trailer');
-        console.log(this.movieTrailer);
+        this.trailerIsLoaded = true;
       },
         (error) => {
           console.log(error);
