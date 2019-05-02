@@ -1,16 +1,42 @@
-.card {
-    background-color: antiquewhite;
-    max-height: 350px;
-}
-
-img {
-    max-height: 350px;
-}
-
 .container {
     width: 70%;
 }
 
+.card {
+    background-color: antiquewhite;
+    max-height: 350px;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 0;
+}
+
+img {
+    max-height: 350px;
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+}
+
 h1 {
     color: white;
+}
+
+.btn {
+    color: black;
+    border: 0px solid grey;
+    background-color: antiquewhite;
+    border-radius: 1px;
+    transition: none;
+}
+
+.btn.btn-secondary.active {
+    color: black;
+    background-color: antiquewhite;
+    box-shadow: 0 0 0 0.2rem rgba(255, 215, 0, 0.5);
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
+    color: black;
+    background-color: antiquewhite;
+
 }

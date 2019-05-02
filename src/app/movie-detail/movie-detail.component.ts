@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MovieService } from '../movie.service';
 import { Location } from '@angular/common';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-movie-detail',
@@ -12,6 +13,8 @@ export class MovieDetailComponent implements OnInit {
 
   isLoaded = false;
   movie: [];
+  movieTrailer: [];
+  showDesc = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -20,6 +23,7 @@ export class MovieDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getChosenMovie();
+    this.getMovieTrailer();
   }
 
   getChosenMovie(): void {
@@ -32,5 +36,27 @@ export class MovieDetailComponent implements OnInit {
         (error) => {
           console.log(error);
         });
+  }
+
+  getMovieTrailer(): void {
+    const id = this.route.snapshot.paramMap.get('id');
+    this.movieService.getMovieTrailer(id)
+      .subscribe(data => {
+        const movieVideos = data.results;
+        this.movieTrailer = movieVideos.filter(video => video.type === 'Trailer');
+        console.log(this.movieTrailer);
+      },
+        (error) => {
+          console.log(error);
+        });
+
+  }
+
+  showDescription(): void {
+    this.showDesc = true;
+  }
+
+  showTrailer(): void {
+    this.showDesc = false;
   }
 }

@@ -1,14 +1,29 @@
 <div *ngIf="isLoaded" class="container py-4">
-    <h1>{{movie.title}}</h1>
-    <div class="card my-3">
+
+    <div class="row ml-1 mr-0">
+        <h1 class="mr-auto mb-3">{{movie.title}}</h1>
+        <div class="mt-auto btn-group btn-group-toggle" data-toggle="buttons">
+            <label (click) = showDescription() class="btn btn-secondary active">
+                <input type="radio" name="options" id="option1" autocomplete="off" checked> Description
+            </label>
+            <label (click) = showTrailer() class="btn btn-secondary">
+                <input type="radio" name="options" id="option2" autocomplete="off"> Trailer
+            </label>
+        </div>
+    </div>
+
+    <div class="card">
         <div class="row no-gutters">
             <div class="col-auto">
                 <img src="https://image.tmdb.org/t/p/w342/{{ movie.poster_path }}" class="img-fluid" alt="">
             </div>
             <div class="col">
-                <div class="card-body px-3">
+                <div *ngIf="showDesc" class="card-body px-3">
                     <h4 class="card-title">Description</h4>
                     <p class="card-text">{{movie.overview}}</p>
+                </div>
+                <div *ngIf="!showDesc" class="card-body px-3">
+                    <video src="https://www.youtube.com/watch?v={{movieTrailer[0].key}}" alt=""></video>
                 </div>
             </div>
         </div>

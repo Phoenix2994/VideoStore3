@@ -23,4 +23,7 @@ export class MovieService {
     return this.http.get(`${this.url}/${id}?api_key=${this.apiKey}&language=${this.language}`);
   }
 
+  getMovieTrailer(id): Observable<any> {
+    return this.http.get(`${this.url}/${id}/videos?api_key=${this.apiKey}&language=${this.language}`);
+  }
 }
