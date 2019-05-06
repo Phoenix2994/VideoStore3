@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.notAuth = this.authGuard.getNotAuth();
+    // this.notAuth = this.authGuard.getNotAuth();
   }
 
   LoginUser() {

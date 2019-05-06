@@ -13,8 +13,10 @@
     <form class="form-inline my-2 my-lg-0">
       <a class="nav-link" routerLink="/dashboard">Hello cinema@cinema.it<span class="sr-only">(current)</span></a>
       <button class="btn btn-danger my-2 my-sm-0 mr-4 ml-2" (click)='LogoutUser()'>Logout</button>
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search Movie</button>
+      <input class="form-control mr-sm-2" [(ngModel)]="searchingTerm" [ngModelOptions]="{standalone: true}"
+        type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" (click)="setSearchingTerm()" type="submit">Search
+        Movie</button>
     </form>
   </div>
 </nav>
