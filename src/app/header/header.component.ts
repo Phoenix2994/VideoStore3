@@ -26,5 +26,4 @@ export class HeaderComponent implements OnInit {
     this.movieService.searchingTerm
       .next(this.searchingTerm);
   }
-
 }

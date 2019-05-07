@@ -17,7 +17,11 @@ const routes: Routes = [
     component: MovieDetailComponent
   },
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'login', component: LoginComponent }
+  {
+    path: 'login',
+    canActivate: [AuthGuardService],
+    component: LoginComponent
+  }
 ];
 
 @NgModule({
